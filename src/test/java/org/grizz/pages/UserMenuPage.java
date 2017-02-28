@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 public class UserMenuPage extends Page {
 
     public WebElement getAvatar() {
-        return driver.findElement(By.cssSelector("li.logged-user img.avatar"));
+        return driver().findElement(By.cssSelector("li.logged-user img.avatar"));
     }
 }

@@ -1,6 +1,5 @@
 package org.grizz.config;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,13 +16,12 @@ public class TestConfig {
     public static final String BASE_URL = "http://wykop.pl";
 
     @Bean
-    public WebDriver webDriver() {
-        return new ChromeDriver();
+    public WebDriverHolder webDriverHolder() {
+        return new WebDriverHolder(ChromeDriver::new);
     }
 
     @PostConstruct
     public void init() {
         System.setProperty("webdriver.chrome.driver", webDriverPath);
-        this.webDriver().get(BASE_URL);
     }
 }

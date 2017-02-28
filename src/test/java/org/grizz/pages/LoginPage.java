@@ -14,7 +14,7 @@ public class LoginPage extends Page {
     private UserMenuPage userMenuPage;
 
     public Page login(String user, String password) {
-        driver.get(url);
+        driver().get(url);
 
         getUsernameField().sendKeys(user);
         getPasswordField().sendKeys(password);
@@ -24,18 +24,18 @@ public class LoginPage extends Page {
     }
 
     public WebElement getErrorMessage() {
-        return driver.findElement(By.cssSelector(".login-form div.submit"));
+        return driver().findElement(By.cssSelector(".login-form div.error"));
     }
 
     private WebElement getUsernameField() {
-        return driver.findElement(By.cssSelector("#text1"));
+        return driver().findElement(By.cssSelector("#text1"));
     }
 
     private WebElement getPasswordField() {
-        return driver.findElement(By.cssSelector("#text2"));
+        return driver().findElement(By.cssSelector("#text2"));
     }
 
     private WebElement getLoginButton() {
-        return driver.findElement(By.cssSelector(".login-form input.submit"));
+        return driver().findElement(By.cssSelector(".login-form input.submit"));
     }
 }
