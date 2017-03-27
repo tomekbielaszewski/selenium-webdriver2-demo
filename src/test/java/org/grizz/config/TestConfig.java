@@ -13,7 +13,9 @@ import javax.annotation.PostConstruct;
 public class TestConfig {
     @Value("${webdriver.chrome.driver}")
     private String webDriverPath;
-    public static final String BASE_URL = "http://wykop.pl";
+
+    @Value("${application.base.url}")
+    public String baseUrl;
 
     @Bean
     public WebDriverHolder webDriverHolder() {

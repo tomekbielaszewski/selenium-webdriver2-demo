@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LoginPage extends Page {
-    private String url = TestConfig.BASE_URL + "/zaloguj";
+    private final String url = "/zaloguj";
+
+    @Autowired
+    private TestConfig config;
 
     @Autowired
     private UserMenuPage userMenuPage;
 
     public Page login(String user, String password) {
-        driver().get(url);
+        driver().get(config.baseUrl + url);
 
         getUsernameField().sendKeys(user);
         getPasswordField().sendKeys(password);
